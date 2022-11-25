@@ -1,0 +1,122 @@
+@import "./reset";
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap");
+@import "./variables";
+
+@mixin d-flex($justifyContent, $alignItems) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Heebo", sans-serif;
+  color: $primaryColor;
+
+  header {
+    .header-content {
+      @include d-flex(space-between, center);
+      height: 70px;
+
+      .logo {
+        font-size: 28px;
+        color: #823d3d;
+        background-image: -webkit-linear-gradient(
+          0deg,
+          #823d3d 0%,
+          #af5fc7 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .nav-list {
+        display: flex;
+        column-gap: 33px;
+        font-weight: 500;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .showcase {
+    @include d-flex(space-between, start);
+    column-gap: 106px;
+    min-height: 243px;
+    margin-top: 140px;
+
+    .text-wrapper {
+      .title {
+        max-width: 445px;
+        width: 100%;
+        font-weight: 700;
+        font-size: 44px;
+        line-height: 60px;
+        margin-bottom: 40px;
+      }
+
+      .paragraph {
+        max-width: 520px;
+        width: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      text-align: center;
+
+      .text-wrapper {
+        padding: 0 20px;
+        @include d-flex(center, center);
+        flex-direction: column;
+        margin-top: 70px;
+      }
+    }
+  }
+
+  .skills {
+    min-height: 396px;
+    padding-top: 27px;
+    padding-bottom: 32px;
+    margin-top: 90px;
+    background-color: #edf7fa;
+
+    .skills-content {
+      .skills-title {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .skills-list {
+        @include d-flex(start, start);
+        column-gap: 50px;
+        margin-top: 60px;
+        .skill {
+          @include d-flex(center, center);
+          flex-direction: column;
+          width: 120px;
+          .skill-img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+          }
+
+          h3 {
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+}
